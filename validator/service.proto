@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "validator/node.proto";
+
+service ValidatorService{
+    rpc AddNodes(AddNodesRequest) returns(ValidatorList)
+    rpc DelNodes(DelNodesRequest) returns(ValidatorList)
+}
+
+message AddNodesRequest{
+    ValidatorList validators = 1;
+}
+
+message DelNodesRequest{
+    ValidatorList validators = 1;
+}
