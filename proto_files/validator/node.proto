@@ -5,5 +5,5 @@ message ValidatorList{
 }
 
 message Validator{
-    string validatorKey = 1;
+    bytes validator_key = 1;
 }

@@ -3,9 +3,10 @@ syntax = "proto3";
 import "proto_files/validator/node.proto";
 
 service ValidatorService{
-    rpc AddNodes(AddNodesRequest) returns(ValidatorList);
-    rpc DelNodes(DelNodesRequest) returns(ValidatorList);
-    rpc UpNodes(UpNodesRequest) returns(ValidatorList);
+    rpc AddNodes(AddNodesRequest) returns(RequestsResult);
+    rpc DelNodes(DelNodesRequest) returns(RequestsResult);
+    rpc UpNodes(UpNodesRequest) returns(RequestsResult);
+    rpc GetNodes(GetNodesRequest) returns(RequestsResult);
 }
 
 message AddNodesRequest{
@@ -19,4 +20,13 @@ message DelNodesRequest{
 message UpNodesRequest{
     ValidatorList validators = 1;
     int32 status = 2;
+}
+
+message GetNodesRequest{
+    ValidatorList validators = 1;
+}
+
+message RequestsResult{
+    int32 status = 1;
+    int32 count = 2;
 }
